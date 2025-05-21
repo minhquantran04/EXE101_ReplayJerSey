@@ -1,96 +1,14 @@
+import Link from "next/link"
+import Image from "next/image"
 import { Grid3X3, List, SlidersHorizontal } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ProductCard } from "@/components/products/product-card"
+import { productsData } from "@/data/products"
 
 export default function ProductsPage() {
-  const products = [
-    {
-      id: "arsenal-1989",
-      name: "Arsenal 1989 Away Kit",
-      description: "Anfield '89 - The kit that made history",
-      price: 89.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.9,
-      badge: "Limited Edition",
-    },
-    {
-      id: "manchester-united-1999",
-      name: "Man United 1999 Home Kit",
-      description: "Treble winners - Camp Nou glory",
-      price: 99.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 5.0,
-      badge: "Bestseller",
-    },
-    {
-      id: "liverpool-1984",
-      name: "Liverpool 1984 Home Kit",
-      description: "European Cup winners - Rome '84",
-      price: 84.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.8,
-      badge: "New Arrival",
-    },
-    {
-      id: "tottenham-1961",
-      name: "Tottenham 1961 Home Kit",
-      description: "Double winners - The Lilywhites' finest hour",
-      price: 79.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.7,
-      badge: "Classic",
-    },
-    {
-      id: "newcastle-1996",
-      name: "Newcastle 1996 Home Kit",
-      description: "The Entertainers - Keegan's attacking side",
-      price: 89.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.9,
-      badge: "Fan Favorite",
-    },
-    {
-      id: "chelsea-1970",
-      name: "Chelsea 1970 FA Cup Kit",
-      description: "FA Cup winners - Wembley triumph",
-      price: 84.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.8,
-      badge: "Rare",
-    },
-    {
-      id: "leeds-1992",
-      name: "Leeds United 1992 Home Kit",
-      description: "Last First Division champions",
-      price: 79.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.6,
-      badge: "Classic",
-    },
-    {
-      id: "everton-1985",
-      name: "Everton 1985 Home Kit",
-      description: "League champions and European glory",
-      price: 84.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.7,
-      badge: "Collector's Item",
-    },
-    {
-      id: "aston-villa-1982",
-      name: "Aston Villa 1982 Home Kit",
-      description: "European Cup winners - Rotterdam '82",
-      price: 89.99,
-      image: "/placeholder.svg?height=400&width=300",
-      rating: 4.8,
-      badge: "Limited Stock",
-    },
-  ]
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header Section */}
@@ -156,9 +74,56 @@ export default function ProductsPage() {
             </div>
 
             {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+              {productsData.map((product) => (
+                <div
+                  key={product.id}
+                  className="group relative overflow-hidden rounded-lg border bg-background shadow-md transition-all hover:shadow-xl"
+                >
+                  <Link href={`/products/${product.id}`}>
+                    <div className="aspect-square overflow-hidden relative">
+                      <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                        <Image
+                          src={product.image || "/placeholder.svg?height=400&width=300"}
+                          width={300}
+                          height={300}
+                          alt={product.name}
+                          className="object-contain w-full h-full"
+                        />
+                      </div>
+                      <div className="absolute top-2 right-2 px-2 py-1 text-xs font-medium bg-[#8b0000] text-white rounded-full">
+                        {product.badge}
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold">{product.name}</h3>
+                        <div className="flex items-center gap-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4 fill-current text-yellow-500"
+                          >
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                          </svg>
+                          <span className="text-sm">{product.rating}</span>
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{product.description}</p>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="font-bold">£{product.price.toFixed(2)}</span>
+                        <span className="text-xs text-[#8b0000] font-medium">View Details</span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
               ))}
             </div>
 

@@ -8,46 +8,20 @@ import { Testimonials } from "@/components/home/testimonials"
 import { Newsletter } from "@/components/shared/newsletter"
 import { FeaturedKit } from "@/components/home/featured-kit"
 import { HistoryTimeline } from "@/components/home/history-timeline"
+import { productsData } from "@/data/products"
 
 export default function Home() {
-  const productData = [
-    {
-      slug: "arsenal-1989",
-      title: "Arsenal 1989 Away Kit",
-      description: "Anfield '89 - The kit that made history",
-      price: 89.99,
-      badge: "Limited Edition",
-      rating: 4.9,
-      image: "/images/arsenal.jpg",
-    },
-    {
-      slug: "manchester-united-1999",
-      title: "Man United 1999 Home Kit",
-      description: "Treble winners - Camp Nou glory",
-      price: 99.99,
-      badge: "Bestseller",
-      rating: 5.0,
-      image: "/images/manutd.jpg",
-    },
-    {
-      slug: "liverpool-1984",
-      title: "Liverpool 1984 Home Kit",
-      description: "European Cup winners - Rome '84",
-      price: 84.99,
-      badge: "New Arrival",
-      rating: 4.8,
-      image: "/images/liverpool.jpg",
-    },
-  ]
+  // Get first 3 products for the homepage
+  const featuredProducts = productsData.slice(0, 3)
 
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
 
-      {/* Featured Kit Section - NEW */}
+      {/* Featured Kit Section */}
       <FeaturedKit />
 
-      {/* History Timeline - NEW */}
+      {/* History Timeline */}
       <HistoryTimeline />
 
       {/* Legendary Kits Section */}
@@ -66,17 +40,53 @@ export default function Home() {
 
           {/* Product Grid */}
           <div className="mx-auto grid max-w-5xl items-center gap-6 py-8 lg:grid-cols-3 lg:gap-12">
-            {productData.map((product, index) => (
-              <ProductCard
-                key={index}
-                slug={product.slug}
-                title={product.title}
-                description={product.description}
-                price={product.price}
-                badge={product.badge}
-                rating={product.rating}
-                image={product.image}
-              />
+            {featuredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="group relative overflow-hidden rounded-lg border bg-background shadow-md transition-all hover:shadow-xl"
+              >
+                <Link href={`/products/${product.id}`}>
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={product.image || "/placeholder.svg"}
+                      className="object-cover transition-transform group-hover:scale-105"
+                      alt={product.name}
+                      width={600}
+                      height={600}
+                    />
+                    <div className="absolute top-2 right-2 px-2 py-1 text-xs font-medium bg-[#8b0000] text-white rounded-full">
+                      {product.badge}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold">{product.name}</h3>
+                      <div className="flex items-center gap-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-4 w-4 fill-current text-yellow-500"
+                        >
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                        <span className="text-sm">{product.rating}</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground">{product.description}</p>
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="font-bold">£{product.price.toFixed(2)}</span>
+                      <span className="text-xs text-[#8b0000] font-medium">View Details</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             ))}
           </div>
 
@@ -136,68 +146,6 @@ export default function Home() {
 
       <Testimonials />
       <Newsletter />
-    </div>
-  )
-}
-
-// Helper component for product cards
-function ProductCard({
-  slug,
-  title,
-  description,
-  price,
-  badge,
-  rating,
-  image,
-}: {
-  slug: string
-  title: string
-  description: string
-  price: number
-  badge: string
-  rating: number
-  image: string
-}) {
-  return (
-    <div className="group relative overflow-hidden rounded-lg border bg-background shadow-md transition-all hover:shadow-xl">
-      <Link href={`/products/${slug}`}>
-        <div className="aspect-square overflow-hidden">
-          <img
-            src={image || "/placeholder.svg"}
-            className="object-cover transition-transform group-hover:scale-105"
-            alt={title}
-            width={600}
-            height={600}
-          />
-        </div>
-        <div className="p-4">
-          <div className="flex items-center justify-between">
-            <h3 className="font-semibold">{title}</h3>
-            <div className="flex items-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4 fill-current text-yellow-500"
-              >
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <span className="text-sm">{rating}</span>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground">{description}</p>
-          <div className="mt-4 flex items-center justify-between">
-            <span className="font-bold">£{price.toFixed(2)}</span>
-            <div className="rounded-full bg-[#e2d9c2] px-2 py-1 text-xs">{badge}</div>
-          </div>
-        </div>
-      </Link>
     </div>
   )
 }

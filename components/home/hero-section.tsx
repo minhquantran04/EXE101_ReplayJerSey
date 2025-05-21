@@ -3,32 +3,28 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { ShoppingBag } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
-  // Sử dụng state với giá trị mặc định để tránh sự khác biệt giữa server và client
   const [isVisible, setIsVisible] = useState(false)
 
-  // Chỉ thực hiện hiệu ứng ở phía client
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
   return (
-    <section className="w-full py-8 md:py-12 lg:py-16 xl:py-20 bg-[#f9f5e9] relative overflow-hidden">
-      {/* Background Pattern */}
+    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#f9f5e9] relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-10">
         <div
           className="absolute inset-0 bg-repeat"
           style={{ backgroundImage: "url('/placeholder.svg?height=100&width=100')" }}
         />
       </div>
-
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          {/* Hero Text */}
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-[#e2d9c2] px-3 py-1 text-sm font-medium">
@@ -58,15 +54,16 @@ export function HeroSection() {
               </Link>
             </div>
           </div>
-
-          {/* Hero Image - Sử dụng client-side rendering cho animation */}
-          <div
-            className={`relative h-[400px] lg:h-[500px] transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[400px] lg:h-[600px]"
           >
             <div className="absolute top-0 right-0 w-full h-full">
               <div className="relative w-full h-full">
                 <Image
-                  src="/images/barca.jpg"
+                  src="/images/arsenal2.jpg"
                   alt="Vintage Football Kit"
                   fill
                   className="object-contain"
@@ -80,7 +77,7 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
