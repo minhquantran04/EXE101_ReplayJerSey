@@ -34,8 +34,7 @@ export function FeaturedKit() {
             </div>
             <div className="flex items-center gap-4 pt-2">
               <div>
-                <span className="text-3xl font-bold">£99.99</span>
-                <span className="text-sm text-muted-foreground line-through ml-2">£119.99</span>
+            
               </div>
               <Link href="/products/barcelona-1999">
                 <Button className="bg-[#8b0000] text-white hover:bg-[#6b0000]">

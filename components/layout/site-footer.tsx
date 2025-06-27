@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Facebook, Instagram, Twitter } from "lucide-react"
-
+import TermsPopup from "../home/TermsPopup"
 export function SiteFooter() {
   return (
     <footer className="w-full border-t bg-[#f9f5e9] py-12 md:py-16">
@@ -14,15 +14,11 @@ export function SiteFooter() {
               beautiful game.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-[#8b0000]">
+              <Link href="https://www.facebook.com/profile.php?id=61556510023791" className="text-muted-foreground hover:text-[#8b0000]">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-[#8b0000]">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-[#8b0000]">
+              <Link href="https://www.instagram.com/_tiemdosuy/" className="text-muted-foreground hover:text-[#8b0000]">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
@@ -76,19 +72,13 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-muted-foreground hover:text-[#8b0000]">
-                  Shipping & Returns
-                </Link>
+            
               </li>
               <li>
-                <Link href="/faq" className="text-muted-foreground hover:text-[#8b0000]">
-                  FAQs
-                </Link>
+       
               </li>
               <li>
-                <Link href="/size-guide" className="text-muted-foreground hover:text-[#8b0000]">
-                  Size Guide
-                </Link>
+            
               </li>
             </ul>
           </div>
@@ -112,11 +102,8 @@ export function SiteFooter() {
                   Privacy Policy
                 </Link>
               </li>
-              <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-[#8b0000]">
-                  Terms & Conditions
-                </Link>
-              </li>
+           <TermsPopup />
+
             </ul>
           </div>
         </div>

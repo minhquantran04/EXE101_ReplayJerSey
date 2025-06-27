@@ -71,8 +71,7 @@ export function HeroSection() {
                 />
                 <div className="absolute -top-4 -right-4 bg-[#e2d9c2] rounded-full p-4 shadow-lg transform rotate-12">
                   <div className="text-center">
-                    <div className="text-xs font-medium">FROM</div>
-                    <div className="text-2xl font-bold">£79.99</div>
+                   
                   </div>
                 </div>
               </div>
