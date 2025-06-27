@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
-const termsContent = `**Terms & Conditions for Vintage Football Kit Web Store**
+const termsContent = `
+**Terms & Conditions for Vintage Football Kit Web Store**
 
 **Effective Date:** June 27, 2025
 
@@ -82,7 +84,6 @@ By accessing and using this website, you agree to comply with and be bound by th
 **By using this website and purchasing from us, you acknowledge that you have read, understood, and agree to these Terms & Conditions.**
 `;
 
-
 export default function TermsPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -98,27 +99,45 @@ export default function TermsPopup() {
   return (
     <>
       <li>
-        <a href="#" onClick={openModal} className="text-muted-foreground hover:text-[#8b0000]">
+        <a
+          href="#"
+          onClick={openModal}
+          className="text-muted-foreground hover:text-[#8b0000]"
+        >
           Terms & Conditions
         </a>
       </li>
 
-      {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg max-w-3xl max-h-[80vh] overflow-y-auto">
-            <h2 className="text-xl font-bold mb-4">Terms & Conditions</h2>
-            <div className="whitespace-pre-wrap text-sm text-gray-700">
-              {termsContent}
-            </div>
-            <button
-              onClick={closeModal}
-              className="mt-4 bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+     {isOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-2">
+    <div className="bg-white rounded-lg w-full max-w-md max-h-screen flex flex-col shadow-lg overflow-y-auto">
+      {/* Header */}
+   <div className="flex-shrink-0 p-4 border-b flex justify-between items-center">
+    <h2 className="text-lg font-bold">Terms & Conditions</h2>
+    <button
+      onClick={closeModal}
+      className="text-gray-400 hover:text-gray-600 text-xl"
+    >
+          ×
+        </button>
+      </div>
+
+    {/* Scrollable content */}
+  <div className="overflow-y-auto p-4 flex-1">
+    <div className="prose prose-sm text-sm text-gray-700 max-w-none">
+      <ReactMarkdown>{termsContent}</ReactMarkdown>
+    </div>
+  </div>
+
+    <button
+      onClick={closeModal}
+      className="w-full bg-red-700 text-white py-2 px-4 rounded hover:bg-red-800"
+    >
+          Close
+        </button>
+      </div>
+    </div>
+)}
     </>
   );
 }
