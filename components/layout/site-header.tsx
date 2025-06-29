@@ -98,11 +98,6 @@ export function SiteHeader() {
       label: "Our&nbsp;Story",
       active: pathname === "/about",
     },
-    {
-      href: "/contact",
-      label: "Contact",
-      active: pathname === "/contact",
-    },
   ]
 
   return (
