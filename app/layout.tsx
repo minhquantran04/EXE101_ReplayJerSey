@@ -9,6 +9,7 @@ import { SiteFooter } from "@/components/layout/site-footer"
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from "@/lib/utils"
 
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
+
           <Toaster />
         </ThemeProvider>
       </body>

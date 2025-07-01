@@ -33,19 +33,6 @@ export function ProductStory({ story, team, year }: ProductStoryProps) {
         <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-[#8b0000]" />
         <p className="text-muted-foreground">{story}</p>
       </motion.div>
-
-      <motion.div
-        className="mt-4 p-4 bg-[#f9f5e9] rounded-lg"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-      >
-        <p className="text-sm italic">
-          "This kit represents one of the most iconic moments in English football history, forever etched in the
-          memories of fans around the world."
-        </p>
-        <p className="text-sm font-medium mt-2">— Football Heritage Museum</p>
-      </motion.div>
     </motion.div>
   )
 }

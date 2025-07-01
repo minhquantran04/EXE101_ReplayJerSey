@@ -22,9 +22,6 @@ export function HeroSection() {
         bg-no-repeat bg-center bg-cover
         relative overflow-hidden
       "
-      // Nếu muốn ảnh luôn hiện đầy đủ (có thể có khoảng trống hai bên), đổi bg-cover thành bg-contain
-      // bg-cover = ảnh luôn phủ kín, có thể bị crop
-      // bg-contain = ảnh luôn hiện đầy đủ, có thể có khoảng trống
     >
       <div className="container px-4 md:px-6 flex items-center justify-start">
         <motion.div

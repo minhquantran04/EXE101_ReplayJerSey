@@ -46,7 +46,7 @@ export function RelatedProducts({ products }: RelatedProductsProps) {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold">{product.name}</h3>
-                <div className="mt-2 font-bold">£{product.price.toFixed(2)}</div>
+                <div className="mt-2 font-bold">VNĐ{product.price.toFixed(2)}</div>
               </div>
             </Link>
           </motion.div>

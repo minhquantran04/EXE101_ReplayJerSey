@@ -50,7 +50,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
           <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
           <div className="mt-4 flex items-center justify-between">
-            <span className="font-bold">£{product.price.toFixed(2)}</span>
+            <span className="font-bold">VNĐ{product.price.toFixed(2)}</span>
             <motion.span className="text-xs font-medium text-[#8b0000] underline" whileHover={{ scale: 1.05 }}>
               View Details
             </motion.span>

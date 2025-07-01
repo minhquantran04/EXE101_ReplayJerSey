@@ -1,15 +1,35 @@
 "use client"
 
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 
+function useBangkokTime() {
+  const [time, setTime] = useState(() => getBangkokTime())
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(getBangkokTime())
+    }, 60000) // update every minute
+    return () => clearInterval(interval)
+  }, [])
+
+  return time
+}
+
+function getBangkokTime() {
+  return new Date().toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "Asia/Bangkok", // GMT+7
+  })
+}
 export function SiteHeader() {
   const pathname = usePathname()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -41,6 +61,7 @@ export function SiteHeader() {
       active: pathname === "/contact",
     },
   ]
+  
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

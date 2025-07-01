@@ -43,17 +43,16 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Update current time
-  useEffect(() => {
-    // Set initial time with a fixed format that won't change between server and client
-    setCurrentTime(
-      new Date().toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: true,
-        timeZone: "UTC", // Use UTC to ensure consistency
-      })
-    );
+useEffect(() => {
+  // Set initial time
+  setCurrentTime(
+    new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "Asia/Bangkok",
+    })
+  );
 
     // Only update time on client side after initial render
     const interval = setInterval(() => {

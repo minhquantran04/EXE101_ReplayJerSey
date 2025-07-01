@@ -81,7 +81,7 @@ export default function Home() {
                     </div>
                     <p className="text-sm text-muted-foreground">{product.description}</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <span className="font-bold">£{product.price.toFixed(2)}</span>
+                      
                       <span className="text-xs text-[#8b0000] font-medium">View Details</span>
                     </div>
                   </div>
