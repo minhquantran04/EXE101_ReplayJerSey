@@ -1,36 +1,47 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Bell, Clock, Menu, Search, ShoppingBag, Star, Trophy, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Bell,
+  Clock,
+  Menu,
+  Search,
+  ShoppingBag,
+  Star,
+  Trophy,
+  X,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
-  const pathname = usePathname()
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [announcement, setAnnouncement] = useState("Free shipping on all orders over £75!")
-  const [currentTime, setCurrentTime] = useState("")
+  const pathname = usePathname();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [announcement, setAnnouncement] = useState(
+    "Free shipping on all orders over £75!"
+  );
+  const [currentTime, setCurrentTime] = useState("");
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Update current time
   useEffect(() => {
@@ -41,8 +52,8 @@ export function SiteHeader() {
         minute: "2-digit",
         hour12: true,
         timeZone: "UTC", // Use UTC to ensure consistency
-      }),
-    )
+      })
+    );
 
     // Only update time on client side after initial render
     const interval = setInterval(() => {
@@ -52,12 +63,12 @@ export function SiteHeader() {
           minute: "2-digit",
           hour12: true,
           timeZone: "UTC",
-        }),
-      )
-    }, 60000)
+        })
+      );
+    }, 60000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   // Rotating announcements
   useEffect(() => {
@@ -66,16 +77,16 @@ export function SiteHeader() {
       "New vintage collection just arrived!",
       "Limited edition kits - while stocks last!",
       "Use code VINTAGE10 for 10% off your first order!",
-    ]
+    ];
 
-    let index = 0
+    let index = 0;
     const interval = setInterval(() => {
-      index = (index + 1) % announcements.length
-      setAnnouncement(announcements[index])
-    }, 5000)
+      index = (index + 1) % announcements.length;
+      setAnnouncement(announcements[index]);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   const routes = [
     {
@@ -98,15 +109,14 @@ export function SiteHeader() {
       label: "Our&nbsp;Story",
       active: pathname === "/about",
     },
-  ]
-
+  ];
   return (
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
           ? "border-b shadow-sm bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-          : "bg-background",
+          : "bg-background"
       )}
     >
       {/* Top announcement bar */}
@@ -132,11 +142,17 @@ export function SiteHeader() {
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <Badge variant="outline" className="text-xs bg-[#e2d9c2] hover:bg-[#d6cdb6] border-0">
+            <Badge
+              variant="outline"
+              className="text-xs bg-[#e2d9c2] hover:bg-[#d6cdb6] border-0"
+            >
               <Star className="h-3 w-3 mr-1 fill-[#8b0000] text-[#8b0000]" />
               Featured Collection
             </Badge>
-            <Badge variant="outline" className="text-xs bg-[#e2d9c2] hover:bg-[#d6cdb6] border-0">
+            <Badge
+              variant="outline"
+              className="text-xs bg-[#e2d9c2] hover:bg-[#d6cdb6] border-0"
+            >
               <ShoppingBag className="h-3 w-3 mr-1 text-[#8b0000]" />
               Limited Edition
             </Badge>
@@ -163,13 +179,17 @@ export function SiteHeader() {
                     href="/"
                     className="flex items-center"
                     onClick={() => {
-                      const sheet = document.querySelector('[data-state="open"]')
+                      const sheet = document.querySelector(
+                        '[data-state="open"]'
+                      );
                       if (sheet) {
-                        sheet.setAttribute("data-state", "closed")
+                        sheet.setAttribute("data-state", "closed");
                       }
                     }}
                   >
-                    <span className="font-serif text-xl font-bold uppercase tracking-tight">Vintage Legends</span>
+                    <span className="font-serif text-xl font-bold uppercase tracking-tight">
+                      Vintage Legends
+                    </span>
                   </Link>
                 </div>
                 <nav className="flex flex-col gap-4 px-7 py-6">
@@ -179,7 +199,9 @@ export function SiteHeader() {
                       href={route.href}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-[#8b0000]",
-                        route.active ? "text-[#8b0000]" : "text-muted-foreground",
+                        route.active
+                          ? "text-[#8b0000]"
+                          : "text-muted-foreground"
                       )}
                     >
                       <span dangerouslySetInnerHTML={{ __html: route.label }} />
@@ -190,7 +212,10 @@ export function SiteHeader() {
             </Sheet>
 
             {/* Desktop Logo */}
-            <Link href="/" className="hidden md:flex items-center space-x-2 group">
+            <Link
+              href="/"
+              className="hidden md:flex items-center space-x-2 group"
+            >
               <div className="relative overflow-hidden">
                 <span className="font-serif text-xl font-bold uppercase tracking-tight group-hover:text-[#8b0000] transition-colors duration-300">
                   Vintage Legends
@@ -208,7 +233,9 @@ export function SiteHeader() {
                 href={route.href}
                 className={cn(
                   "transition-all hover:text-[#8b0000] whitespace-nowrap relative group",
-                  route.active ? "text-[#8b0000] font-bold" : "text-muted-foreground",
+                  route.active
+                    ? "text-[#8b0000] font-bold"
+                    : "text-muted-foreground"
                 )}
               >
                 <span dangerouslySetInnerHTML={{ __html: route.label }} />
@@ -241,9 +268,11 @@ export function SiteHeader() {
           </div>
 
           {/* Empty space to balance the header on desktop */}
-          <div className="hidden md:flex md:w-1/4 justify-end">{/* Intentionally left empty for balance */}</div>
+          <div className="hidden md:flex md:w-1/4 justify-end">
+            {/* Intentionally left empty for balance */}
+          </div>
         </div>
       </div>
     </header>
-  )
+  );
 }
