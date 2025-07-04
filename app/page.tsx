@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { HeroSection } from "@/components/home/hero-section"
 import { FeaturedProducts } from "@/components/home/featured-products"
 import { Testimonials } from "@/components/home/testimonials"
-import { Newsletter } from "@/components/shared/newsletter"
 import { FeaturedKit } from "@/components/home/featured-kit"
 import { HistoryTimeline } from "@/components/home/history-timeline"
 import { productsData } from "@/data/products"
@@ -145,7 +144,7 @@ export default function Home() {
       </section>
 
       <Testimonials />
-      <Newsletter />
+ 
     </div>
   )
 }
