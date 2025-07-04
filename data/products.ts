@@ -201,7 +201,7 @@ export const productsData = [
     packaging: "Vintage-style box with certificate of authenticity",
   },
 },
-{id: "Pepsi 1997-1998",
+{id: "Pepsi1997-1998",
     name: "Pepsi 1997-1998",
     description: "Designed for Pepsi's campaign ",
     price: 40,
