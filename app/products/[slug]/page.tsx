@@ -25,7 +25,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     .map((p) => ({
       id: p.id,
       name: p.name,
-      price: p.price,
       image: p.image,
     }))
 
@@ -102,14 +101,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            {/* Price */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold">£{product.price.toFixed(2)}</span>
-                <span className="text-sm text-muted-foreground line-through">£{(product.price + 10).toFixed(2)}</span>
-              </div>
-            </div>
-
             {/* Product Spotlight */}
             <ProductSpotlight
               team={product.team}
@@ -178,7 +169,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   </div>
                   <div className="p-4">
                     <h3 className="font-semibold">{product.name}</h3>
-                    <div className="mt-2 font-bold">£{product.price.toFixed(2)}</div>
                   </div>
                 </Link>
               </div>

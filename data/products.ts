@@ -3,7 +3,6 @@ export const productsData = [
     id: "arsenal-1989",
     name: "Arsenal 1989 Away Kit",
     description: "Anfield '89 - The kit that made history",
-    price: 89.99,
     image: "/images/arsenal.jpg",
     rating: 4.9,
     badge: "Limited Edition",
@@ -36,7 +35,6 @@ export const productsData = [
     id: "manchester-united-1999",
     name: "Man United 1999 Home Kit",
     description: "Treble winners - Camp Nou glory",
-    price: 99.99,
     image: "/images/manutd.jpg",
     rating: 5.0,
     badge: "Bestseller",
@@ -69,7 +67,6 @@ export const productsData = [
     id: "liverpool-1984",
     name: "Liverpool 1984 Home Kit",
     description: "European Cup winners - Rome '84",
-    price: 84.99,
     image: "/images/liverpool.jpg",
     rating: 4.8,
     badge: "Classic",
@@ -103,7 +100,6 @@ export const productsData = [
     id: "Barcelona1992-1993",
     name: "Barcelona 1992-1993",
     description: "Champions League winners ",
-    price: 104,
     image: "/images/barca.jpg",
     rating: 5.0,
     badge: "Collector's Item",
@@ -123,7 +119,7 @@ export const productsData = [
       "Comes in vintage-style packaging",
     ],
     story:
-   "\"Koeman takes the shot... GOAL! Barcelona are European champions for the first time!\" That historic moment took place in May 1992 at Wembley, when Ronald Koeman smashed the ball into Sampdoria's net and crowned Barcelona kings of Europe for the very first time. Just a few months later, the 1992–1993 season kicked off, ushering in a new chapter for a club that had just conquered the continent.\nThe iconic red and blue vertical striped shirt from the 92–93 season became a symbol of a Barcelona proud of its own identity, a time when the team still played at the old Camp Nou, before its modern renovations, and when Johan Cruyff was still the soul of the club.\nThat jersey witnessed the final peak year of the \"Dream Team,\" with a young Pep Guardiola orchestrating play from midfield, Stoichkov wreaking havoc up front, and Laudrup conducting the game like a maestro. Under Cruyff's guidance, that season's Barca laid the foundations of a footballing philosophy that would later define both La Masia and the tiki-taka era.",
+      "\"Koeman takes the shot... GOAL! Barcelona are European champions for the first time!\" That historic moment took place in May 1992 at Wembley, when Ronald Koeman smashed the ball into Sampdoria's net and crowned Barcelona kings of Europe for the very first time. Just a few months later, the 1992–1993 season kicked off, ushering in a new chapter for a club that had just conquered the continent.\nThe iconic red and blue vertical striped shirt from the 92–93 season became a symbol of a Barcelona proud of its own identity, a time when the team still played at the old Camp Nou, before its modern renovations, and when Johan Cruyff was still the soul of the club.\nThat jersey witnessed the final peak year of the Dream Team, with a young Pep Guardiola orchestrating play from midfield, Stoichkov wreaking havoc up front, and Laudrup conducting the game like a maestro. Under Cruyff's guidance, that season's Barca laid the foundations of a footballing philosophy that would later define both La Masia and the tiki-taka era.",
     specs: {
       material: "100% Polyester",
       fit: "Regular",
@@ -136,7 +132,6 @@ export const productsData = [
     id: "juventus-1996",
     name: "Juventus 1996 Home Kit",
     description: "Champions League winners - Rome '96",
-    price: 86.99,
     image: "/images/juve.jpg",
     rating: 4.7,
     badge: "Collector's Item",
@@ -169,7 +164,6 @@ export const productsData = [
   id: "everton-1995-1996",
   name: "Everton 1995-1996",
   description: "FA CUP winners",
-  price: 68,
   image: "/images/everton.jpg",
   rating: 4.4,
   badge: "Collector's Item",
@@ -201,40 +195,41 @@ export const productsData = [
     packaging: "Vintage-style box with certificate of authenticity",
   },
 },
-{id: "Pepsi1997-1998",
-    name: "Pepsi 1997-1998",
-    description: "Designed for Pepsi's campaign ",
-    price: 40,
-    image: "/images/pepsi.jpg",
-    rating: 4.8,
-    badge: "Collector's Item",
-    team: "Pepsi",
-    year: 1997,
-    manufacturer: "Pepsi",
-    sponsor: "Pepsi",
-    colors: ["Blue", "Red", "White"],
-    longDescription:
-      "The Pepsi “Generation Next” shirt from 1997 1998, famously worn by global icons like David Beckham, Alessandro Del Piero, and Rivaldo in Pepsi’s legendary ad campaign. Not tied to any club or national team, this jersey became a pop culture symbol of a football-loving generation, featuring in a star-studded commercial alongside legends like Roberto Carlos, Raúl, Petit, Šuker, and Yorke. A true collector’s item from the golden era of football and 90s nostalgia.",
-    features: [
-      "Authentic version of the 1997 Pepsi home kit",
-      "100% polyester with embroidered club crest",
-      "Classic Pepsi design",
-      "Pepsi sponsor logo as worn by famous players",
-      "Original details and stitching",
-      "Comes in vintage-style packaging",
-    ],
- story:
-  "\"Beckham, Del Piero, Rivaldo... and many other stars wearing the same shirt\"\n" +
-  "This is the shirt featured in Pepsi’s iconic commercial campaign, created to represent the brand’s new generation.\n" +
-  "The Pepsi “Generation Next” 1997–1998 shirt was not tied to any club, but it became linked to an entire generation, one that grew up with FourFourTwo magazine covers, color TVs, and VHS tapes constantly replaying that Pepsi ad where footballers appeared like true rockstars.\n" +
-  "This was the era when Beckham still had his signature curtain haircut, Raúl was a rising young talent, Del Piero embodied Italian flair, and Rivaldo was just emerging at Barcelona. The commercial also starred some of the biggest names of the time, including Emmanuel Petit, Roberto Carlos, Davor Šuker, and Dwight Yorke. Pepsi essentially created a dream team, a fantasy squad where the brightest stars came together like characters from a Playstation game cherished by kids of that era.",
-specs: {
-  material: "100% Polyester",
-  fit: "Regular",
-  care: "Machine washable at 30°C",
-  origin: "Imported",
-  packaging: "Vintage-style box with certificate of authenticity",
-},
 
-  }
+{
+  id: "Pepsi1997-1998",
+  name: "Pepsi 1997-1998",
+  description: "Designed for Pepsi's campaign ",
+  image: "/images/pepsi.jpg",
+  rating: 4.8,
+  badge: "Collector's Item",
+  team: "Pepsi",
+  year: 1997,
+  manufacturer: "Pepsi",
+  sponsor: "Pepsi",
+  colors: ["Blue", "Red", "White"],
+  longDescription:
+    "The Pepsi “Generation Next” shirt from 1997 1998, famously worn by global icons like David Beckham, Alessandro Del Piero, and Rivaldo in Pepsi’s legendary ad campaign. Not tied to any club or national team, this jersey became a pop culture symbol of a football-loving generation, featuring in a star-studded commercial alongside legends like Roberto Carlos, Raúl, Petit, Šuker, and Yorke. A true collector’s item from the golden era of football and 90s nostalgia.",
+  features: [
+    "Authentic version of the 1997 Pepsi home kit",
+    "100% polyester with embroidered club crest",
+    "Classic Pepsi design",
+    "Pepsi sponsor logo as worn by famous players",
+    "Original details and stitching",
+    "Comes in vintage-style packaging",
+  ],
+  story:
+    "\"Beckham, Del Piero, Rivaldo... and many other stars wearing the same shirt\"\n" +
+    "This is the shirt featured in Pepsi’s iconic commercial campaign, created to represent the brand’s new generation.\n" +
+    "The Pepsi “Generation Next” 1997–1998 shirt was not tied to any club, but it became linked to an entire generation, one that grew up with FourFourTwo magazine covers, color TVs, and VHS tapes constantly replaying that Pepsi ad where footballers appeared like true rockstars.\n" +
+    "This was the era when Beckham still had his signature curtain haircut, Raúl was a rising young talent, Del Piero embodied Italian flair, and Rivaldo was just emerging at Barcelona. The commercial also starred some of the biggest names of the time, including Emmanuel Petit, Roberto Carlos, Davor Šuker, and Dwight Yorke. Pepsi essentially created a dream team, a fantasy squad where the brightest stars came together like characters from a Playstation game cherished by kids of that era.",
+  specs: {
+    material: "100% Polyester",
+    fit: "Regular",
+    care: "Machine washable at 30°C",
+    origin: "Imported",
+    packaging: "Vintage-style box with certificate of authenticity",
+  },
+}
+
 ]
